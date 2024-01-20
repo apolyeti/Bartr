@@ -12,7 +12,7 @@ export default async function Home() {
   
   return (
     // <Typography>{user.name}</Typography>
-    
+    <></>
     /*
       <AppBar>
         <Toolbar>
