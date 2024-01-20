@@ -3,11 +3,11 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 
 export default function NavBar() {
     return (
-        <>
+        <div>
             {/* Bartr Logo (Left) */}
             <Image
                 src="/bartrlogo.svg"
@@ -15,9 +15,9 @@ export default function NavBar() {
                 width={360} // Adjust the width as needed
                 height={120} // Adjust the height as needed
             />
-
+            
             {/* AppBar with Dark Grey Color (Below the Logo) */}
-            <AppBar position="static" style={{ backgroundColor: '#424242' }}>
+            <AppBar position="static" style={{ backgroundColor: '#424242', height: '80px'}}>
                 <Container sx={{
                     display: "flex",
                     justifyContent: "space-between",
@@ -26,6 +26,18 @@ export default function NavBar() {
                     padding: "1rem",
                     marginRight: "10px",
                 }}>
+                    {/* Centered Text */}
+                    <Typography variant="h6" component="div" sx={{ 
+                      flexGrow: 1, 
+                      textAlign: 'center', 
+                      fontSize: '45px', 
+                      fontFamily: 'Helvetica', 
+                      color: 'white', 
+                      display: 'flex', 
+                      alignItems: 'center'
+                    }}>
+                        popular listings
+                    </Typography>
                     {/* Login and Sign Up Buttons (Right) */}
                     <Stack spacing={2} direction="row" sx={{ flex:1, justifyContent: "flex-end"}}>
                         <Button variant="contained" style={{backgroundColor: '#FCFCFC', color: '#212121'}}>
@@ -37,6 +49,6 @@ export default function NavBar() {
                     </Stack>
                 </Container>
             </AppBar>
-        </>
+        </div>
     );
 }
