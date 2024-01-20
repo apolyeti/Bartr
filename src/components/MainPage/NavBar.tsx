@@ -1,37 +1,39 @@
 import Image from "next/image";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Toolbar from '@mui/material/Toolbar';
 import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
 
 export default function NavBar() {
     return (
-        <Container sx={{
-            color: "black", 
-            padding:"2rem 0", 
-            display:"flex", 
-            justifyContent:"space-between",
-            alignItems:"center",
-        }}>
-            <Box flexGrow={1}></Box>
+        <Container>
+            {/* Bartr Logo (Left) */}
             <Image
-              src= "/bartrlogo.svg"
-              alt="logo"
-              width={400}
-              height={80}
+                src="/bartrlogo.svg"
+                alt="logo"
+                width={360} // Adjust the width as needed
+                height={120} // Adjust the height as needed
             />
-            
-            <Stack spacing={2} direction="row">
-              <Button variant="contained">
-                LOG IN
-                </Button>
-              <Button variant="outlined" >SIGN UP</Button>
-            </Stack>
 
+            {/* AppBar with Dark Grey Color (Below the Logo) */}
+            <AppBar position="static" style={{ backgroundColor: '#424242' }}>
+                <Toolbar sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                }}>
+                    {/* Login and Sign Up Buttons (Right) */}
+                    <Stack spacing={2} direction="row" justifyContent={"flex-end"}>
+                        <Button variant="contained">
+                            LOG IN
+                        </Button>
+                        <Button variant="outlined">
+                            SIGN UP
+                        </Button>
+                    </Stack>
+                </Toolbar>
+            </AppBar>
         </Container>
     );
-  }
+}
