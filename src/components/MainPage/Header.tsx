@@ -1,0 +1,1 @@
+// header component for the main page
