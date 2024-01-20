@@ -18,9 +18,8 @@ export default function NavBar() {
             
             {/* AppBar with Dark Grey Color (Below the Logo) */}
             <AppBar position="static" style={{ backgroundColor: '#424242', height: '80px'}}>
-                <Container sx={{
+                <Stack direction="row" sx={{
                     display: "flex",
-                    justifyContent: "space-between",
                     alignItems: "center",
                     width: "100%", // Set width to 100% to cover the screen width
                     padding: "1rem",
@@ -28,13 +27,11 @@ export default function NavBar() {
                 }}>
                     {/* Centered Text */}
                     <Typography variant="h6" component="div" sx={{ 
-                      flexGrow: 1, 
                       textAlign: 'center', 
                       fontSize: '45px', 
                       fontFamily: 'Helvetica', 
                       color: 'white', 
-                      display: 'flex', 
-                      alignItems: 'center'
+                      display: 'flex',
                     }}>
                         popular listings
                     </Typography>
@@ -47,7 +44,7 @@ export default function NavBar() {
                             SIGN UP
                         </Button>
                     </Stack>
-                </Container>
+                </Stack>
             </AppBar>
         </div>
     );
