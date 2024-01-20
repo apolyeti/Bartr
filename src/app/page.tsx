@@ -10,6 +10,7 @@ export default function Home() {
           alt="BartrLogo"
           width={180}
           height={37}
+          //hello
         />
       </div>
 
