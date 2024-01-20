@@ -23,14 +23,15 @@ export default function NavBar() {
                     justifyContent: "space-between",
                     alignItems: "center",
                     width: "100%", // Set width to 100% to cover the screen width
-                    padding: "1rem"
+                    padding: "1rem",
+                    marginRight: "10px",
                 }}>
                     {/* Login and Sign Up Buttons (Right) */}
-                    <Stack spacing={2} direction="row" justifyContent={"flex-end"}>
-                        <Button variant="contained">
+                    <Stack spacing={2} direction="row" sx={{ flex:1, justifyContent: "flex-end"}}>
+                        <Button variant="contained" style={{backgroundColor: '#FCFCFC', color: '#212121'}}>
                             LOG IN
                         </Button>
-                        <Button variant="outlined">
+                        <Button variant="outlined" style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
                             SIGN UP
                         </Button>
                     </Stack>
