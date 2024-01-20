@@ -7,7 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 
 export default function NavBar() {
     return (
-        <Container>
+        <>
             {/* Bartr Logo (Left) */}
             <Image
                 src="/bartrlogo.svg"
@@ -18,10 +18,12 @@ export default function NavBar() {
 
             {/* AppBar with Dark Grey Color (Below the Logo) */}
             <AppBar position="static" style={{ backgroundColor: '#424242' }}>
-                <Toolbar sx={{
+                <Container sx={{
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
+                    width: "100%", // Set width to 100% to cover the screen width
+                    padding: "1rem"
                 }}>
                     {/* Login and Sign Up Buttons (Right) */}
                     <Stack spacing={2} direction="row" justifyContent={"flex-end"}>
@@ -32,8 +34,8 @@ export default function NavBar() {
                             SIGN UP
                         </Button>
                     </Stack>
-                </Toolbar>
+                </Container>
             </AppBar>
-        </Container>
+        </>
     );
 }
