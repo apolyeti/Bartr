@@ -1,17 +1,18 @@
-import Image from "next/image";
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Toolbar from '@mui/material/Toolbar';
-import AppBar from '@mui/material/AppBar';
+// import { getUserById } from "@/utils/db";
+// import { useState } from "react";
+// import prisma from "@/utils/db";
 
+export default async function Home() {
 
-export default function Home() {
+  // const user = await prisma.user.findUnique({
+  //   where: {
+  //     id: 1,
+  //   },
+  // });
+  
   return (
-    <Typography></Typography>
+    // <Typography>{user.name}</Typography>
+    
     /*
       <AppBar>
         <Toolbar>
