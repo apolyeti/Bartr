@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import NavBar from "@components/MainPage/NavBar";
 
-
+import theme from "./themes";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <NavBar/>
-        <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
-      </body>
-    </html>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <html lang="en">
+        <NavBar />
+        <AppRouterCacheProvider>
+          {children}
+        </AppRouterCacheProvider>
+      </html>
+    </ThemeProvider>
   );
 }
