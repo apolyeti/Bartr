@@ -9,6 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.3",
+    "@emotion/server": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material-nextjs": "^5.15.5",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18"
@@ -19,7 +33,13 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "prisma": "^5.8.1",
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     "typescript": "^5"
   }
 }
