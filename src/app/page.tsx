@@ -8,9 +8,8 @@ export default function Home() {
         <Image
           src= "/bartrlogo.svg"
           alt="BartrLogo"
-          width={180}
+          width={150}
           height={37}
-          //hello
         />
       </div>
 
