@@ -10,8 +10,13 @@ import AppBar from '@mui/material/AppBar';
 
 export default function NavBar() {
     return (
-        <AppBar>
-          <Toolbar>
+        <Container sx={{
+            color: "black", 
+            padding:"2rem 0", 
+            display:"flex", 
+            justifyContent:"space-between",
+            alignItems:"center",
+        }}>
             <Box flexGrow={1}></Box>
             <Image
               src= "/bartrlogo.svg"
@@ -20,11 +25,13 @@ export default function NavBar() {
               height={80}
             />
             
-            <Stack spacing={2} direction="row" >
-              <Button variant="contained">LOG IN</Button>
-              <Button variant="outlined">SIGN UP</Button>
+            <Stack spacing={2} direction="row">
+              <Button variant="contained">
+                LOG IN
+                </Button>
+              <Button variant="outlined" >SIGN UP</Button>
             </Stack>
-          </Toolbar>
-        </AppBar>
+
+        </Container>
     );
   }

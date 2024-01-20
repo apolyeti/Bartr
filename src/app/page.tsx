@@ -11,7 +11,7 @@ import AppBar from '@mui/material/AppBar';
 
 export default function Home() {
   return (
-    <Typography>hi</Typography>
+    <Typography></Typography>
     /*
       <AppBar>
         <Toolbar>
