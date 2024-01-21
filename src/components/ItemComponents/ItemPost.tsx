@@ -16,6 +16,7 @@ interface ItemPostProps {
         content: string | null;
         image: string;
     },
+    showAll?: boolean;
 }
 
 
@@ -23,7 +24,7 @@ interface ItemPostProps {
 
 
 
-export default async function ItemPost({ item }: ItemPostProps) {
+export default async function ItemPost({ showAll, item }: ItemPostProps) {
     // find the actual item in database using the id,
     // then find the userid of the item, then find the user's location
     let location = "Location not found";
@@ -78,7 +79,7 @@ export default async function ItemPost({ item }: ItemPostProps) {
                         height: 300,
                     }}
                 />
-                    <CardContent sx={{height: "25%", margin: 0}}>
+                    {showAll && <CardContent sx={{height: "25%", margin: 0}}>
                         <Typography gutterBottom variant="h5" component="div">
                             {item.title}
                         </Typography>
@@ -89,7 +90,7 @@ export default async function ItemPost({ item }: ItemPostProps) {
                         
                         <></>
                     
-                    </CardContent>
+                    </CardContent>}
                     
             </Card>
         </NextLink>
