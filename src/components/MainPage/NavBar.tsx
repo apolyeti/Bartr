@@ -3,10 +3,13 @@ import Image from "next/image";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-
+import NextAuth from "next-auth/";
+import GoogleProvider from "next-auth/providers/google";
+import type  from "next-auth/providers/oauth";
+import { GoogleProfile } from "next-auth/providers/google";
+import { styled, alpha } from '@mui/material/styles';
 import NextLink from "next/link";
 
 const Search = styled('div')(({ theme }) => ({
@@ -51,6 +54,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
+if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
+    const options = {
+        providers: [
+            GoogleProvider({
+                clientId: process.env.GOOGLE_CLIENT_ID,
+                clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            }),
+        ],
+        callbacks: {
+            async signIn( profile : GoogleProfile) {
+                return profile.email_verified && profile.email.endsWith("@ucsc.edu");
+            }
+        }
+    }
+}
 
 export default function NavBar() {
     return (
