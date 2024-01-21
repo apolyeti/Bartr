@@ -6,6 +6,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import prisma from '@/utils/db';
 import ItemPost from '@/components/ItemComponents/ItemPost';
 import { notFound } from 'next/navigation';
+import Divider from '@mui/material/Divider';
+
 
 function stringAvatar(name: string) {
   return {
@@ -49,15 +51,17 @@ export default async function Page({ params }: { params: { user: string } }) {
         marginRight: "10px",
       }}>
 
-        <Stack spacing={5} sx={{
+        <Stack spacing={2} sx={{
           padding: "4rem",
         }}>
           <Avatar {...stringAvatar(user.name || '')} sx={{
             width: 200, height:200, fontSize: 64
           }} />
 
+          <Typography fontSize={25}>{user.name}</Typography>
+          <Divider />
+
           <Box >
-            <Typography fontSize={25}>{user.name}</Typography>
             <Typography fontSize={15}>{user.email}</Typography>
             <Typography fontSize={15}>Location: {user.location}</Typography>
           </Box>
@@ -66,13 +70,12 @@ export default async function Page({ params }: { params: { user: string } }) {
         <Stack spacing={5} sx={{
           padding: "4rem",
         }}>
-          <Typography fontSize={25}>My Listings</Typography>
+          <Typography fontSize={25}>Listings</Typography>
             <Stack direction="row">
                 {posts.map((post) => (
                     <ItemPost item={post} showAll={false} key={post.id}/>
                 ))}
             </Stack>          
-          <Typography fontSize={25}>My Saves</Typography>
         </Stack>
 
     </Stack>
