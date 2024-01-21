@@ -76,7 +76,7 @@ export default function NavBar() {
                             <Button variant="contained" style={{backgroundColor: '#FCFCFC', color: '#212121'}}>
                                 LOG IN
                             </Button>
-                            <Button variant="outlined" style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
+                            <Button variant="outlined" style={{backgroundColor: '#FCFCFC', color: '#212121'}}>
                                 SIGN UP
                             </Button>
                 </Stack>
