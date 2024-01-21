@@ -8,11 +8,11 @@ const userData: Prisma.UserCreateInput[] = [
         name: 'Hovhannes Muradyan',
         location: 'College 9'
     },
-    {
-        email: 'aazhand@ucsc.edu',
-        name: 'Arveen Azhand',
-        location: 'College 9'
-    }
+    // {
+    //     email: 'aazhand@ucsc.edu',
+    //     name: 'Arveen Azhand',
+    //     location: 'College 9'
+    // }
 ];
 
 const postData: Prisma.PostCreateInput[] = [

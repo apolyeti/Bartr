@@ -1,9 +1,9 @@
 "use client"
 import Image from "next/image";
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+//import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-// import {Button} from "@nextui-org/react";
+import {Button} from "@nextui-org/react";
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import NextAuth from "next-auth/";
@@ -14,6 +14,8 @@ import NextLink from "next/link";
 import { Icon, IconButton } from "@mui/material";
 import CreateIcon from '@mui/icons-material/Create';
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useEffect } from "react";
+import prisma from "@/utils/db";
 
 const Search = styled('div')(({ theme }) => ({
     position: "relative",
@@ -57,9 +59,50 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-
+// model User {
+//     id    Int     @id @default(autoincrement())
+//     email String  @unique
+//     name  String
+//     posts Post[]
+//     location String
+// }
 export default function NavBar() {
-    const {data : session } = useSession();
+    const { data: session } = useSession();
+  // check if user exists through their email
+    // if not, create user
+    // if yes, do nothing
+    // find user by email
+    // if not found, create user
+    // if found, dont do anything
+
+    useEffect(() => {
+        console.log(session)
+        const createUser = async () => {
+            if (session && session.user?.email && session.user?.name) {
+                const reqBody = {
+                    email: session.user.email,
+                    name: session.user.name,
+                    location: "College 10"
+                }
+                const response = await fetch('/api/user', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    //credentials: "include",
+                    body: JSON.stringify(reqBody),
+                });
+
+                const data = await response.json();
+            }
+        }
+        createUser();
+    }
+    , [session]);
+    
+    
+
+
     return (
         <div>
             <Stack direction="row" sx={{
@@ -104,6 +147,7 @@ export default function NavBar() {
                             </NextLink>
                             {(!session || !session.user) && 
                                 <>
+                                <NextLink onClick={() => signIn()} href="/">
                                     <Button 
                                         style={{backgroundColor: '#FCFCFC', color: '#212121'}}
                                         onClick={() => signIn()}
@@ -113,6 +157,7 @@ export default function NavBar() {
                                     <Button style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
                                         SIGN UP
                                     </Button>
+                                </NextLink>
                                 </>
                             }
                             {session && session.user && 

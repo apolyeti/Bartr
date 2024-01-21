@@ -19,6 +19,8 @@ export default async function Home() {
       image: post.image,
     }));
   });
+
+
   
   return (
     // <Typography>{user.name}</Typography>
