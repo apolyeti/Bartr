@@ -25,7 +25,7 @@ export default function RootLayout({
       <html lang="en">
         <body>
         <Providers>
-        <NavBar />
+        <NavBar/>
         <AppRouterCacheProvider>
           {children}
         </AppRouterCacheProvider>
