@@ -14,7 +14,7 @@ import NextLink from "next/link";
 import { Icon, IconButton } from "@mui/material";
 import CreateIcon from '@mui/icons-material/Create';
 import { useSession, signIn, signOut } from "next-auth/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import prisma from "@/utils/db";
 
 const Search = styled('div')(({ theme }) => ({
@@ -71,12 +71,33 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 // }
 export default function NavBar() {
     const { data: session } = useSession();
+    const [userIdRoute, setUserIdRoute] = useState(2);
   // check if user exists through their email
     // if not, create user
     // if yes, do nothing
     // find user by email
     // if not found, create user
     // if found, dont do anything
+    useEffect(() => {
+        const setRoute = async () => {
+            const res = await fetch('api/userid', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: session?.user?.email
+                })
+            });
+            
+            const data = await res.json();
+            setUserIdRoute(data.userId);
+            console.log(userIdRoute);
+        }
+
+        setRoute();
+    })
+
 
     useEffect(() => {
         console.log(session)
@@ -96,31 +117,45 @@ export default function NavBar() {
                     body: JSON.stringify(reqBody),
                 });
 
-                const data = await response.json();
+                // const res = await fetch('api/userid', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //     },
+                //     body: JSON.stringify({
+                //         email: session?.user?.email
+                //     })
+                // });
+
+                // const data = await res.json();
+                // userIdRoute = data.userId;
             }
         }
         createUser();
     }
     , [session]);
 
-    const handleClick= async () =>{
 
-        const response = await fetch('api/userid', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            //credentials: "include",
-            body: JSON.stringify({
-                email: session?.user?.email
-            })
-        });
+    // const handleClick= async () =>{
 
-        const data = await response.json();
-        const userId = data.userId;
-        console.log(data);
-        window.location.href = "/profile/" + userId;
-    }
+    //     const response = await fetch('api/userid', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         //credentials: "include",
+    //         body: JSON.stringify({
+    //             email: session?.user?.email
+    //         })
+    //     });
+
+    //     const data = await response.json();
+    //     const userId = data.userId;
+    //     console.log(data);
+    //     window.location.href = "/profile/" + userId;
+    // }
+
+    
     
     return (
         <div>
@@ -189,9 +224,12 @@ export default function NavBar() {
                                         log out
                                     </Button>
                                     
-                                    <Button onClick={handleClick} style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
+                                    <NextLink href={"/profile/" + userIdRoute}>
+                                        <Button style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
                                             {session.user.name}
-                                    </Button>
+                                        </Button>
+                                    </NextLink>
+                                    
                                         
                                     
                                 </>
