@@ -6,8 +6,8 @@
 .pnp.js
 .yarn/install-state.gz
 
-# database
-prisma/db.sqlite3
+#database
+prisma/db,sqLite3
 
 # testing
 /coverage
