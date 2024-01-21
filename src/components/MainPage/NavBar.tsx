@@ -1,8 +1,9 @@
 "use client"
 import Image from "next/image";
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import {Button} from "@nextui-org/react";
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import NextAuth from "next-auth/";
@@ -12,6 +13,7 @@ import { styled, alpha } from '@mui/material/styles';
 import NextLink from "next/link";
 import { Icon, IconButton } from "@mui/material";
 import CreateIcon from '@mui/icons-material/Create';
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Search = styled('div')(({ theme }) => ({
     position: "relative",
@@ -55,23 +57,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
-    const options = {
-        providers: [
-            GoogleProvider({
-                clientId: process.env.GOOGLE_CLIENT_ID,
-                clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            }),
-        ],
-        callbacks: {
-            async signIn( profile : GoogleProfile) {
-                return profile.email_verified && profile.email.endsWith("@ucsc.edu");
-            }
-        }
-    }
-}
 
 export default function NavBar() {
+    const {data : session } = useSession();
     return (
         <div>
             <Stack direction="row" sx={{
@@ -114,12 +102,19 @@ export default function NavBar() {
                                     <CreateIcon />
                                 </IconButton>
                             </NextLink>
-                            <Button variant="contained" style={{backgroundColor: '#FCFCFC', color: '#212121'}}>
-                                log in
-                            </Button>
-                            <Button variant="outlined" style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
-                                sign up
-                            </Button>
+                            {(!session || !session.user) && 
+                                <>
+                                    <Button 
+                                        style={{backgroundColor: '#FCFCFC', color: '#212121'}}
+                                        onClick={() => signIn()}
+                                    >
+                                        log in
+                                    </Button>
+                                    <Button style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
+                                        sign up
+                                    </Button>
+                                </>
+                            }
                     </Stack>
                 </Box>
 

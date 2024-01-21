@@ -5,6 +5,7 @@ import NavBar from "@components/MainPage/NavBar";
 
 import theme from "./themes";
 import { CssBaseline, ThemeProvider } from "@mui/material";
+import Providers from "@/components/MainPage/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +23,12 @@ export default function RootLayout({
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <html lang="en">
+        <Providers>
         <NavBar />
         <AppRouterCacheProvider>
           {children}
         </AppRouterCacheProvider>
+        </Providers>
       </html>
     </ThemeProvider>
   );
