@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import prisma from '@/utils/db';
 import ItemPost from '@/components/ItemComponents/ItemPost';
+import { notFound } from 'next/navigation';
 
 function stringAvatar(name: string) {
   return {
@@ -17,11 +18,15 @@ function stringAvatar(name: string) {
 
 export default async function Page({ params }: { params: { user: string } }) {
 
-  const user = await prisma.user.findUnique({
+  const user = await prisma.user.findUniqueOrThrow({
     where: {
       id: parseInt(params.user),
     },
-    }) || {name: "User not found", email: "", location: ""}
+    }).catch((error) => {
+        // make 404 page
+        return notFound();
+        }
+    );
 
     const posts = await prisma.post.findMany({
       where: {
@@ -47,11 +52,9 @@ export default async function Page({ params }: { params: { user: string } }) {
         <Stack spacing={5} sx={{
           padding: "4rem",
         }}>
-          <Avatar sx={{
-            width: 200, height:200
-          }}>
-            <Avatar {...stringAvatar({user.name})} />
-          </Avatar>
+          <Avatar {...stringAvatar(user.name || '')} sx={{
+            width: 200, height:200, fontSize: 64
+          }} />
 
           <Box >
             <Typography fontSize={25}>{user.name}</Typography>
@@ -66,7 +69,7 @@ export default async function Page({ params }: { params: { user: string } }) {
           <Typography fontSize={25}>My Listings</Typography>
             <Stack direction="row">
                 {posts.map((post) => (
-                <ItemPost item={post} showAll={false}/>
+                    <ItemPost item={post} showAll={false} key={post.id}/>
                 ))}
             </Stack>          
           <Typography fontSize={25}>My Saves</Typography>
