@@ -17,6 +17,7 @@ export default async function Page({ params }: { params: { post: string } }) {
                 id: post.id,
                 title: post.title,
                 content: post.content,
+                image: post.image,
             };
         }).catch((error) => {
             // make 404 page

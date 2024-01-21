@@ -16,6 +16,7 @@ export default async function Home() {
       id: post.id,
       title: post.title,
       content: post.content,
+      image: post.image,
     }));
   });
   
