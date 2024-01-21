@@ -42,18 +42,19 @@ export default function ItemPost({ item, showAll = true }: ItemPostProps) {
                         height: 300,
                     }}
                 />
-                { showAll ?
                     <CardContent sx={{height: "25%", margin: 0}}>
                         <Typography gutterBottom variant="h5" component="div">
                             {item.title}
                         </Typography>
+                    { showAll ?
                         <Typography variant="body2" color="text.secondary">
                             {location}
                         </Typography>
+                        :
+                        <></>
+                    }
                     </CardContent>
-                    :
-                    <></>
-                }
+                    
             </Card>
         </NextLink>
     );
