@@ -23,12 +23,14 @@ export default function RootLayout({
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <html lang="en">
+        <body>
         <Providers>
         <NavBar />
         <AppRouterCacheProvider>
           {children}
         </AppRouterCacheProvider>
         </Providers>
+        </body>
       </html>
     </ThemeProvider>
   );
