@@ -7,14 +7,8 @@ export default function Header() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-<<<<<<< Updated upstream
-                width: "100%",
-                height: "100%",
-                marginBottom: "100",
-=======
                 marginBottom: "100",
                 width: "100%", // Set width to 100% to cover the screen width
->>>>>>> Stashed changes
             }}>
                     <Box
                         sx={{
