@@ -9,6 +9,7 @@ export default function Header() {
                 alignItems: "center",
                 marginBottom: "100",
                 width: "100%", // Set width to 100% to cover the screen width
+                padding: '15px',
             }}>
                     <Box
                         sx={{
