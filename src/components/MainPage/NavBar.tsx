@@ -10,6 +10,8 @@ import GoogleProvider from "next-auth/providers/google";
 import { GoogleProfile } from "next-auth/providers/google";
 import { styled, alpha } from '@mui/material/styles';
 import NextLink from "next/link";
+import { Icon, IconButton } from "@mui/material";
+import CreateIcon from '@mui/icons-material/Create';
 
 const Search = styled('div')(({ theme }) => ({
     position: "relative",
@@ -107,11 +109,16 @@ export default function NavBar() {
                 {/* Login and Sign Up Buttons (Right) */}
                 <Box minWidth="400">
                     <Stack spacing={2} direction="row">
+                            <NextLink href="/create/post">
+                                <IconButton aria-label="create" style={{backgroundColor: '#FCFCFC', color: '#212121'}} > 
+                                    <CreateIcon />
+                                </IconButton>
+                            </NextLink>
                             <Button variant="contained" style={{backgroundColor: '#FCFCFC', color: '#212121'}}>
-                                LOG IN
+                                log in
                             </Button>
                             <Button variant="outlined" style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
-                                SIGN UP
+                                sign up
                             </Button>
                     </Stack>
                 </Box>
