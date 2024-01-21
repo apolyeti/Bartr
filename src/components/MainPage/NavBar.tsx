@@ -58,38 +58,48 @@ export default function NavBar() {
     return (
         <div>
             <Stack direction="row" sx={{
-                    display: "flex",
                     alignItems: "center",
-                    width: "100%", // Set width to 100% to cover the screen width
+                    width: "100%", 
                     padding: "1rem",
                     marginRight: "10px",
+                    justifyContent: "space-between",
                 }}>
+
                 {/* Bartr Logo (Left) */}
-                <Image
-                    src="/bartrlogo.svg"
-                    alt="logo"
-                    width={300} 
-                    height={100} 
-                />
+                <Box minWidth="400">
+                    <Image
+                        src="/bartrlogo.svg"
+                        alt="logo"
+                        width={300} 
+                        height={100} 
+                    />
+                </Box>
+                
+                <Box minWidth="400">
+                    <Search>
+                        <SearchIconWrapper>
+                            <SearchIcon/>
+                        </SearchIconWrapper>
+                        <StyledInputBase
+                            placeholder="search..."
+                            inputProps={{ 'aria-label': 'search' }}
+                        />
+                    </Search>
+                </Box>
+
                 {/* Login and Sign Up Buttons (Right) */}
-                <Stack spacing={2} direction="row" sx={{ flex:1, justifyContent: "flex-end"}}>
+                <Box minWidth="400">
+                    <Stack spacing={2} direction="row">
                             <Button variant="contained" style={{backgroundColor: '#FCFCFC', color: '#212121'}}>
                                 LOG IN
                             </Button>
                             <Button variant="outlined" style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
                                 SIGN UP
                             </Button>
-                </Stack>
+                    </Stack>
+                </Box>
 
-                <Search>
-                    <SearchIconWrapper>
-                        <SearchIcon/>
-                    </SearchIconWrapper>
-                    <StyledInputBase
-                        placeholder="search..."
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
-                </Search>
+
             </Stack>
         
             {/* AppBar with Dark Grey Color (Below the Logo) */}
