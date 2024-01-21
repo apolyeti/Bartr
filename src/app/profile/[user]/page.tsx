@@ -59,8 +59,11 @@ export default async function Page({ params }: { params: { user: string } }) {
           alignItems: "left",
         }}>
           <Typography fontSize={25}>My Listings</Typography>
-          <ItemPost item={post} />
-          
+            <Stack direction="row" spacing={5}>
+                {posts.map((post) => (
+                <ItemPost item={post} />
+                ))}
+            </Stack>          
           <Typography fontSize={25}>My Saves</Typography>
         </Stack>
 
