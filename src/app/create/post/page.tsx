@@ -1,10 +1,10 @@
 "use client"
-import React from "react";
+import React, {useState, ChangeEvent} from "react";
 import Box from "@mui/material/Box"
 import Stack from "@mui/material/Stack"
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { Container, FormControl, FormHelperText, Input, InputLabel } from "@mui/material";
+import { Container, FormControl, FormHelperText, Input, InputLabel, TextField } from "@mui/material";
 import { styled } from '@mui/material/styles';
 
 const ariaLabel = { 'aria-label': 'description' };
@@ -19,14 +19,31 @@ const VisuallyHiddenInput = styled('input')({
     left: 0,
     whiteSpace: 'nowrap',
     width: 1,
-  });
-  
+});
 
 export default function Page() {
+    const [formData, setFormData] = useState({
+        title: '',
+        description: '',
+        location: '',
+    });
+    
+    const handleChange = (field: string) => (event: ChangeEvent<HTMLInputElement>) => {
+        setFormData({
+          ...formData,
+          [field]: event.target.value,
+        });
+      };
+      
+    const handleSubmit = () =>{
+    
+        console.log(formData)
+    }
+    
     return (
-        <Stack spacing={2} direction="column" alignItems={"flex-start"} sx={{padding:"8rem"}}>
+            <Stack spacing={2} direction="column" alignItems={"flex-start"} sx={{padding:"8rem"}}>
 
-            <Button color="primary" component="label" variant="contained" startIcon={<CloudUploadIcon />}>
+            <Button color="secondary" component="label" variant="contained" startIcon={<CloudUploadIcon />}>
                 Upload file
                 <VisuallyHiddenInput type="file" />
             </Button>
@@ -34,30 +51,42 @@ export default function Page() {
 
             <Box component="form" sx={{
                 '& > :not(style)': { m: 1 },
-                padding:"2rem"
             }}
                 noValidate
                 autoComplete="off"
             >
-                <Input placeholder="Title" inputProps={ariaLabel} />
-                <FormHelperText id="my-helper-text">Enter a title.</FormHelperText>
+                <TextField 
+                    id="standard-basic" 
+                    label="Enter a title." 
+                    variant="standard" 
+                    value={formData.title}
+                    onChange={handleChange('title')}
+                />
 
-                <Input placeholder="Description" inputProps={ariaLabel} />
-                <FormHelperText id="my-helper-text">Enter a description.</FormHelperText>
+                <TextField 
+                    id="standard-basic" 
+                    label="Enter a description." 
+                    variant="standard"
+                    value={formData.description}
+                    onChange={handleChange('description')}
+                />
 
-                <Input placeholder="Location" inputProps={ariaLabel} />
-                <FormHelperText id="my-helper-text">Where are you located?</FormHelperText>
+                <TextField 
+                    id="standard-basic" 
+                    label="Enter a location." 
+                    variant="standard" 
+                    value={formData.location}
+                    onChange={handleChange('location')}
+                />
             </Box>
+            
 
-            <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}>
-                Upload file
-                <VisuallyHiddenInput type="file" />
+
+            <Button color="primary" component="label" variant="contained" onClick={handleSubmit}>
+                Post listing
             </Button>
 
-
-        </Stack>
-        
-        
+            </Stack>
         
     );
 }
