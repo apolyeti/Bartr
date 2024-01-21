@@ -115,6 +115,19 @@ export default function NavBar() {
                                     </Button>
                                 </>
                             }
+                            {session && session.user && 
+                                <>
+                                    <Button 
+                                        style={{backgroundColor: '#FCFCFC', color: '#212121'}}
+                                        onClick={() => signOut()}
+                                    >
+                                        log out
+                                    </Button>
+                                    <Button style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
+                                        {session.user.name}
+                                    </Button>
+                                </>
+                            }
                     </Stack>
                 </Box>
 
