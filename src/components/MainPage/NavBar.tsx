@@ -1,9 +1,9 @@
 "use client"
 import Image from "next/image";
 import Stack from '@mui/material/Stack';
-//import Button from '@mui/material/Button';
+import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import {Button} from "@nextui-org/react";
+//import {Button} from "@nextui-org/react";
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import NextAuth from "next-auth/";
