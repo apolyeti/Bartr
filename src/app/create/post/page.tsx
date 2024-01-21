@@ -6,14 +6,11 @@ import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { Container, FormControl, FormHelperText, Input, InputLabel, TextField } from "@mui/material";
 import { styled } from '@mui/material/styles';
-<<<<<<< Updated upstream
 import {useSession} from "next-auth/react";
-=======
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 
 
->>>>>>> Stashed changes
 
 const ariaLabel = { 'aria-label': 'description' };
 
