@@ -7,7 +7,6 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import NextAuth from "next-auth/";
 import GoogleProvider from "next-auth/providers/google";
-import type  from "next-auth/providers/oauth";
 import { GoogleProfile } from "next-auth/providers/google";
 import { styled, alpha } from '@mui/material/styles';
 import NextLink from "next/link";
