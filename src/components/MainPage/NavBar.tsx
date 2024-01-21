@@ -9,7 +9,6 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import NextLink from "next/link";
 
-
 const Search = styled('div')(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -68,7 +67,7 @@ export default function NavBar() {
                 <Box minWidth="400">
                     <NextLink href="/">
                         <Image
-                            src="/bartrlogo.svg"
+                            src="/bartrlogo2.svg"
                             alt="logo"
                             width={300} 
                             height={100} 

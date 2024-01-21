@@ -1,5 +1,6 @@
 "use client";
 import {createTheme} from '@mui/material/styles';
+import './font.css';
 
 declare module '@mui/material/styles' {
     interface Theme {
@@ -23,6 +24,11 @@ const theme = createTheme({
         secondary: {
           main: '#edf2ff',
         },
+      },
+      typography: {
+        fontFamily: [
+          'Druk Wide Web',
+        ].join(','),
       },
 });
 

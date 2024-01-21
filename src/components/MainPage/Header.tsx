@@ -2,24 +2,20 @@ import { AppBar, Box, Stack } from "@mui/material";
 
 export default function Header() {
     return (
-        <AppBar position="static" style={{ backgroundColor: '#171717', height: '70px'}}>
+        <AppBar position="static" style={{ backgroundColor: '#171717', height: '70px', marginBottom: '50px'}}>
             <Stack direction="row" sx={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                width: "100%", // Set width to 100% to cover the screen width
+                width: "100%",
+                height: "100%",
             }}>
-                <div>
                     <Box
                         sx={{
-                            typography: 'header1',        
-                            mx: 'auto',
-                            fontWeight: 'bold',
-                            fontSize: '45px', 
-                            fontFamily: 'Helvetica Neue', 
+                            typography: 'header1',  
+                            fontSize: '25px', 
                             color: 'white',
                     }}>popular listings</Box>
-                </div>
             </Stack>
         </AppBar>
     );
