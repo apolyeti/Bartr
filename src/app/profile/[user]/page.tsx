@@ -6,6 +6,14 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import prisma from '@/utils/db';
 import ItemPost from '@/components/ItemComponents/ItemPost';
 
+function stringAvatar(name: string) {
+  return {
+    sx: {
+      bgcolor: "black",
+    },
+    children: `${name.split(' ')[0][0]}`,
+  };
+}
 
 export default async function Page({ params }: { params: { user: string } }) {
 
@@ -42,7 +50,7 @@ export default async function Page({ params }: { params: { user: string } }) {
           <Avatar sx={{
             width: 200, height:200
           }}>
-            <AccountCircleIcon/>
+            <Avatar {...stringAvatar({user.name})} />
           </Avatar>
 
           <Box >
