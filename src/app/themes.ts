@@ -19,13 +19,13 @@ declare module '@mui/material/styles' {
 const theme = createTheme({
     palette: {
         primary: {
-          main: '#ffffff',
+          main: '#82AF81',
         },
         secondary: {
           main: '#edf2ff',
         },
       },
-      typography: {
+typography: {
         fontFamily: [
           'Druk Wide Web Super Regular',
         ].join(','),

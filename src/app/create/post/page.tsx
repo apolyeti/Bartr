@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Box from "@mui/material/Box"
 import Stack from "@mui/material/Stack"
@@ -23,7 +24,14 @@ const VisuallyHiddenInput = styled('input')({
 
 export default function Page() {
     return (
-        <Stack direction="column" alignItems={"flex-start"}>
+        <Stack spacing={2} direction="column" alignItems={"flex-start"} sx={{padding:"8rem"}}>
+
+            <Button color="primary" component="label" variant="contained" startIcon={<CloudUploadIcon />}>
+                Upload file
+                <VisuallyHiddenInput type="file" />
+            </Button>
+
+
             <Box component="form" sx={{
                 '& > :not(style)': { m: 1 },
                 padding:"2rem"
