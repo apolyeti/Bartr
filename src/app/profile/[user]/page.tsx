@@ -44,27 +44,30 @@ export default async function Page({ params }: { params: { user: string } }) {
     });
 
     return (
-      <Stack direction="row" alignItems={"flex-start"} sx={{
+      <Stack direction="column" alignItems={"flex-start"} sx={{
         alignItems: "left",
         width: "100%", 
         padding: "1rem",
         marginRight: "10px",
       }}>
 
-        <Stack spacing={2} sx={{
+        <Stack spacing={2} direction="row" sx={{
           padding: "4rem",
         }}>
           <Avatar {...stringAvatar(user.name || '')} sx={{
             width: 200, height:200, fontSize: 64
           }} />
+          <Stack spacing={2} direction="column" sx={{
+          padding: "4rem",
+          }}>
+            <Typography fontSize={25}>{user.name}</Typography>
+            <Divider />
 
-          <Typography fontSize={25}>{user.name}</Typography>
-          <Divider />
-
-          <Box >
-            <Typography fontSize={15}>{user.email}</Typography>
-            <Typography fontSize={15}>Location: {user.location}</Typography>
-          </Box>
+            <Box >
+              <Typography fontSize={15}>{user.email}</Typography>
+              <Typography fontSize={15}>Location: {user.location}</Typography>
+            </Box>
+          </Stack>
         </Stack>
 
         <Stack spacing={5} sx={{
