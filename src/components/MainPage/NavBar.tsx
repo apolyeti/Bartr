@@ -59,6 +59,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
+
 // model User {
 //     id    Int     @id @default(autoincrement())
 //     email String  @unique
@@ -100,9 +101,6 @@ export default function NavBar() {
     }
     , [session]);
     
-    
-
-
     return (
         <div>
             <Stack direction="row" sx={{
@@ -168,9 +166,11 @@ export default function NavBar() {
                                     >
                                         log out
                                     </Button>
-                                    <Button style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
-                                        {session.user.name}
-                                    </Button>
+                                    
+                                        <Button style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
+                                            {session.user.name}
+                                        </Button>
+                                    
                                 </>
                             }
                     </Stack>
