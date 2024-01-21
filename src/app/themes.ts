@@ -27,7 +27,7 @@ const theme = createTheme({
       },
       typography: {
         fontFamily: [
-          'Druk Wide Web',
+          'Druk Wide Web Super Regular',
         ].join(','),
       },
 });
