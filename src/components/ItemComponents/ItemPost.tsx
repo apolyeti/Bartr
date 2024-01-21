@@ -14,13 +14,14 @@ interface ItemPostProps {
         title: string;
         content: string | null;
         image: string;
-    }
+    },
+    showAll?: boolean;
 }
 
 let location = "College 9"; 
 // location will be determined by user id, which is a property of the item
 
-export default function ItemPost({ item}: ItemPostProps, showAll: boolean = true) {
+export default function ItemPost({ item, showAll = true }: ItemPostProps) {
     return (
         <NextLink href={`/post/${item.id}`}>
             <Card
