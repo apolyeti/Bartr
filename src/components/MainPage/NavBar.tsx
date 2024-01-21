@@ -7,6 +7,8 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
+import NextLink from "next/link";
+
 
 const Search = styled('div')(({ theme }) => ({
     position: "relative",
@@ -64,12 +66,14 @@ export default function NavBar() {
 
                 {/* Bartr Logo (Left) */}
                 <Box minWidth="400">
-                    <Image
-                        src="/bartrlogo.svg"
-                        alt="logo"
-                        width={300} 
-                        height={100} 
-                    />
+                    <NextLink href="/">
+                        <Image
+                            src="/bartrlogo.svg"
+                            alt="logo"
+                            width={300} 
+                            height={100} 
+                        />
+                    </NextLink>
                 </Box>
                 
                 <Box minWidth="400">
