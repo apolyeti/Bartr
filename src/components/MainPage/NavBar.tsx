@@ -108,10 +108,10 @@ export default function NavBar() {
                                         style={{backgroundColor: '#FCFCFC', color: '#212121'}}
                                         onClick={() => signIn()}
                                     >
-                                        log in
+                                        LOGIN
                                     </Button>
                                     <Button style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
-                                        sign up
+                                        SIGN UP
                                     </Button>
                                 </>
                             }
