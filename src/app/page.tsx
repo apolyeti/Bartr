@@ -1,7 +1,7 @@
 // import { getUserById } from "@/utils/db";
-// import { useState } from "react";
-// import prisma from "@/utils/db";
-
+import prisma from "@/utils/db";
+import ItemPost from "@/components/ItemComponents/ItemPost";
+import { Container, Grid } from "@mui/material";
 export default async function Home() {
 
   // const user = await prisma.user.findUnique({
@@ -9,10 +9,26 @@ export default async function Home() {
   //     id: 1,
   //   },
   // });
+
+  const posts = await prisma.post.findMany({}).then((posts) => {
+    return posts.map((post) => ({
+      id: post.id,
+      title: post.title,
+      content: post.content,
+    }));
+  });
   
   return (
     // <Typography>{user.name}</Typography>
-    <></>
+    <Container>
+      <Grid container spacing={10}>
+          {posts.map((post) => (
+          <Grid item xs={3}>
+              <ItemPost item={post} />
+          </Grid>
+          ))}
+      </Grid>
+    </Container>
     /*
       <AppBar>
         <Toolbar>
