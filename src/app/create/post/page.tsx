@@ -6,7 +6,14 @@ import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { Container, FormControl, FormHelperText, Input, InputLabel, TextField } from "@mui/material";
 import { styled } from '@mui/material/styles';
+<<<<<<< Updated upstream
 import {useSession} from "next-auth/react";
+=======
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+
+
+>>>>>>> Stashed changes
 
 const ariaLabel = { 'aria-label': 'description' };
 
@@ -29,6 +36,12 @@ export default function Page() {
         description: '',
         location: '',
     });
+
+    const [category, setCat] = React.useState('');
+    
+    const handleSelect = (event: SelectChangeEvent) => {
+        setCat(event.target.value as string);
+      };
     
     const handleChange = (field: string) => (event: ChangeEvent<HTMLInputElement>) => {
         setFormData({
@@ -74,7 +87,23 @@ export default function Page() {
             }}
                 noValidate
                 autoComplete="off"
-            >
+
+            >   <InputLabel id="demo-simple-select-standard-label">Category</InputLabel>
+                <Select
+                    labelId="demo-simple-select-standard-label"
+                    id="demo-simple-select-standard"
+                    value={category}
+                    label="Category"
+                    onChange={handleSelect}
+                    sx={{ width: '175px' }}
+                >
+                    <MenuItem value="">
+                        <em>None</em>
+                    </MenuItem>
+                    <MenuItem value='1'>Goods</MenuItem>
+                    <MenuItem value='2'>Services</MenuItem>
+                </Select>
+                
                 <TextField 
                     id="standard-basic" 
                     label="Enter a title." 

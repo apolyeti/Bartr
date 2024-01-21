@@ -138,11 +138,6 @@ export default function NavBar() {
                 {/* Login and Sign Up Buttons (Right) */}
                 <Box minWidth="400">
                     <Stack spacing={2} direction="row">
-                            <NextLink href="/create/post">
-                                <IconButton aria-label="create" style={{backgroundColor: '#FCFCFC', color: '#212121'}} > 
-                                    <CreateIcon />
-                                </IconButton>
-                            </NextLink>
                             {(!session || !session.user) && 
                                 <>
                                 <NextLink onClick={() => signIn()} href="/">
@@ -160,6 +155,12 @@ export default function NavBar() {
                             }
                             {session && session.user && 
                                 <>
+                                    <NextLink href="/create/post">
+                                        <IconButton aria-label="create" style={{backgroundColor: '#FCFCFC', color: '#212121'}} > 
+                                            <CreateIcon />
+                                        </IconButton>
+                                    </NextLink>
+
                                     <Button 
                                         style={{backgroundColor: '#FCFCFC', color: '#212121'}}
                                         onClick={() => signOut()}

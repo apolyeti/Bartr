@@ -31,11 +31,11 @@ export default async function Page({ params }: { params: { post: string } }) {
 
     return (
         <Container>
-            <Stack direction="row">
+            <Stack direction="row" >
                 <ItemPost item={post} />
                 <Box>
-                    <Typography fontFamily="monospace" variant="h5">{user.name}</Typography>
-                    <Typography fontFamily="monospace" variant="h6">{post.content}</Typography>
+                    <Typography fontWeight="thin" variant="h5">{user.name}</Typography>
+                    <Typography fontStyle="italic" fontWeight="thin" fontFamily="monospace" variant="h6">{post.content}</Typography>
                 </Box>
             </Stack>
         </Container>
