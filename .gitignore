@@ -7,7 +7,7 @@
 .yarn/install-state.gz
 
 #database
-prisma/db,sqLite3
+prisma/db.sqlite3
 
 # testing
 /coverage

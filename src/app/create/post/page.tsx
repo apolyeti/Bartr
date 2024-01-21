@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { Container, FormControl, FormHelperText, Input, InputLabel, TextField } from "@mui/material";
 import { styled } from '@mui/material/styles';
+import {useSession} from "next-auth/react";
 
 const ariaLabel = { 'aria-label': 'description' };
 
@@ -22,6 +23,7 @@ const VisuallyHiddenInput = styled('input')({
 });
 
 export default function Page() {
+    const {data: session} = useSession();
     const [formData, setFormData] = useState({
         title: '',
         description: '',
@@ -33,11 +35,29 @@ export default function Page() {
           ...formData,
           [field]: event.target.value,
         });
-      };
-      
-    const handleSubmit = () =>{
+    };
     
+    const handleSubmit = async () =>{
+
         console.log(formData)
+        const response = await fetch('/api/newitem', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            //credentials: "include",
+            body: JSON.stringify({
+                title: formData.title,
+                content: formData.description,
+                location: formData.location,
+                image: "https://cdn.discordapp.com/attachments/1157200811282157598/1198425009820020787/sweater1.jpg?ex=65bedb44&is=65ac6644&hm=30876b99b66f4337603ec747efe2780ee0daad91a1d376fe355050d596abf7ca&",
+                author: session?.user?.email,
+            })
+        });
+
+        const data = await response.json();
+        console.log(data);
+        window.location.href = "/";
     }
     
     return (

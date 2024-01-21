@@ -4,8 +4,9 @@ import type { Item } from "@utils/types";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Box, CardMedia, Typography } from "@mui/material";
-
+import prisma from "@/utils/db";
 import NextLink from 'next/link';
+
 
 
 interface ItemPostProps {
@@ -15,13 +16,48 @@ interface ItemPostProps {
         content: string | null;
         image: string;
     },
-    showAll?: boolean;
 }
 
-let location = "College 9"; 
-// location will be determined by user id, which is a property of the item
 
-export default function ItemPost({ item, showAll = true }: ItemPostProps) {
+
+
+
+
+export default async function ItemPost({ item }: ItemPostProps) {
+    // find the actual item in database using the id,
+    // then find the userid of the item, then find the user's location
+    let location = "Location not found";
+    try {
+        const post = await prisma.post.findUnique({
+            where: {
+                id: item.id,
+            },
+        });
+
+        if (!post) {
+            throw new Error("Post not found");
+        }
+
+        const authorId = post.authorId;
+        
+
+        const user = await prisma.user.findUnique({
+            where: {
+                id: post.authorId,
+            },
+        });
+
+        if (!user) {
+            throw new Error("User not found");
+        }
+
+        location = user.location;
+    } catch (error) {
+        console.log(error);
+    }
+
+
+
     return (
         <NextLink href={`/post/${item.id}`}>
             <Card
@@ -46,13 +82,13 @@ export default function ItemPost({ item, showAll = true }: ItemPostProps) {
                         <Typography gutterBottom variant="h5" component="div">
                             {item.title}
                         </Typography>
-                    { showAll ?
+                    
                         <Typography variant="body2" color="text.secondary">
                             {location}
                         </Typography>
-                        :
+                        
                         <></>
-                    }
+                    
                     </CardContent>
                     
             </Card>
