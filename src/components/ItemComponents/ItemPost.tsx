@@ -20,7 +20,7 @@ interface ItemPostProps {
 let location = "College 9"; 
 // location will be determined by user id, which is a property of the item
 
-export default function ItemPost({ item }: ItemPostProps) {
+export default function ItemPost({ item}: ItemPostProps, showAll: boolean = true) {
     return (
         <NextLink href={`/post/${item.id}`}>
             <Card
@@ -41,14 +41,18 @@ export default function ItemPost({ item }: ItemPostProps) {
                         height: 300,
                     }}
                 />
-                <CardContent sx={{height: "25%", margin: 0}}>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {item.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {location}
-                    </Typography>
-                </CardContent>
+                { showAll ?
+                    <CardContent sx={{height: "25%", margin: 0}}>
+                        <Typography gutterBottom variant="h5" component="div">
+                            {item.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            {location}
+                        </Typography>
+                    </CardContent>
+                    :
+                    <></>
+                }
             </Card>
         </NextLink>
     );
