@@ -43,8 +43,10 @@ export default async function Page({ params }: { params: { user: string } }) {
       }));
     });
 
+    
+
     return (
-      <Stack direction="column" alignItems={"flex-start"} sx={{
+      <Stack direction="row" alignItems={"flex-start"} sx={{
         alignItems: "left",
         width: "100%", 
         padding: "1rem",
@@ -70,7 +72,7 @@ export default async function Page({ params }: { params: { user: string } }) {
           </Stack>
         </Stack>
 
-        <Stack spacing={5} sx={{
+        <Stack spacing={2} sx={{
           padding: "4rem",
         }}>
           <Typography fontSize={25}>Listings</Typography>

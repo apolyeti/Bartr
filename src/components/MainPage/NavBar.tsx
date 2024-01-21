@@ -60,6 +60,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
+
+
 // model User {
 //     id    Int     @id @default(autoincrement())
 //     email String  @unique
@@ -100,6 +102,25 @@ export default function NavBar() {
         createUser();
     }
     , [session]);
+
+    const handleClick= async () =>{
+
+        const response = await fetch('api/userid', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            //credentials: "include",
+            body: JSON.stringify({
+                email: session?.user?.email
+            })
+        });
+
+        const data = await response.json();
+        const userId = data.userId;
+        console.log(data);
+        window.location.href = "/profile/" + userId;
+    }
     
     return (
         <div>
@@ -168,9 +189,10 @@ export default function NavBar() {
                                         log out
                                     </Button>
                                     
-                                        <Button style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
+                                    <Button onClick={handleClick} style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
                                             {session.user.name}
-                                        </Button>
+                                    </Button>
+                                        
                                     
                                 </>
                             }
