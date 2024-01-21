@@ -22,7 +22,7 @@ export async function POST(req: Request, res: Response) {
     const newItem = await prisma.post.create({
         data: {
             title: body.title,
-            content: body.description,
+            content: body.content,
             image: body.image,
             published: true,
             author: {

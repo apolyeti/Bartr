@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { post: string } }) {
     return (
         <Container>
             <Stack direction="row" >
-                <ItemPost item={post} />
+                <ItemPost item={post} showAll={true}/>
                 <Box>
                     <Typography fontWeight="thin" variant="h5">{user.name}</Typography>
                     <Typography fontStyle="italic" fontWeight="thin" fontFamily="monospace" variant="h6">{post.content}</Typography>
