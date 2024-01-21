@@ -4,6 +4,8 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+
 
 export default function NavBar() {
     return (
@@ -34,25 +36,24 @@ export default function NavBar() {
             </Stack>
         
             {/* AppBar with Dark Grey Color (Below the Logo) */}
-            <AppBar position="static" style={{ backgroundColor: '#424242', height: '80px'}}>
+            <AppBar position="static" style={{ backgroundColor: '#424242', height: '80px', padding: '5px'}}>
                 <Stack direction="row" sx={{
                     display: "flex",
+                    justifyContent: "center",
                     alignItems: "center",
                     width: "100%", // Set width to 100% to cover the screen width
-                    padding: "1rem",
-                    marginRight: "10px",
                 }}>
-                    {/* Centered Text */}
-                    <Typography variant="h6" component="div" sx={{ 
-                      textAlign: 'center', 
-                      fontSize: '45px', 
-                      fontFamily: 'Helvetica', 
-                      color: 'white', 
-                      display: 'flex',
-                    }}>
-                        popular listings
-                    </Typography>
-                    
+                    <div>
+                        <Box
+                            sx={{
+                                typography: 'header1',        
+                                mx: 'auto',
+                                fontWeight: 'bold',
+                                fontSize: '45px', 
+                                fontFamily: 'Helvetica', 
+                                color: 'white',
+                        }}>popular listings</Box>
+                    </div>
                 </Stack>
             </AppBar>
         </div>
