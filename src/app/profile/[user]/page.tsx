@@ -29,17 +29,15 @@ export default async function Page({ params }: { params: { user: string } }) {
     });
 
     return (
-      <Stack direction="row" sx={{
-        alignItems: "center",
+      <Stack direction="row" alignItems={"flex-start"} sx={{
+        alignItems: "left",
         width: "100%", 
         padding: "1rem",
         marginRight: "10px",
-        justifyContent: "space-between",
       }}>
 
         <Stack spacing={5} sx={{
           padding: "4rem",
-          alignItems: "left",
         }}>
           <Avatar sx={{
             width: 200, height:200
@@ -56,12 +54,11 @@ export default async function Page({ params }: { params: { user: string } }) {
 
         <Stack spacing={5} sx={{
           padding: "4rem",
-          alignItems: "left",
         }}>
           <Typography fontSize={25}>My Listings</Typography>
-            <Stack direction="row" spacing={5}>
+            <Stack direction="row">
                 {posts.map((post) => (
-                <ItemPost item={post} />
+                <ItemPost item={post} showAll={false}/>
                 ))}
             </Stack>          
           <Typography fontSize={25}>My Saves</Typography>
@@ -71,10 +68,3 @@ export default async function Page({ params }: { params: { user: string } }) {
     ); 
 }
 
-/*model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
-  location String
-}*/
