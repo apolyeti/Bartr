@@ -5,7 +5,14 @@ import { AcUnitOutlined } from '@mui/icons-material';
 
 export default function Page({ params }: { params: { user: string } }) {
     return (
-      <Stack>
+      <Stack direction="column" sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: "100",
+        width: "100%",
+        height: "100%",
+      }}>
         <div>UserId: {params.user}</div>
         <AccountCircleIcon/>
       </Stack>
