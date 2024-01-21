@@ -5,9 +5,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
-<<<<<<< Updated upstream
 import Box from '@mui/material/Box';
-=======
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
@@ -54,7 +52,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       },
     },
 }));
->>>>>>> Stashed changes
 
 
 export default function NavBar() {
