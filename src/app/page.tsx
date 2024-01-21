@@ -26,7 +26,7 @@ export default async function Home() {
       <Container>
         <Grid container spacing={10}>
             {posts.map((post) => (
-              <Grid item xs={3}>
+              <Grid item xs={3} key={post.id}>
                   <ItemPost item={post} />
               </Grid>
             ))}
