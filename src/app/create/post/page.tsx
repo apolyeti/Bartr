@@ -1,4 +1,5 @@
-import { Container, FormControl, FormHelperText, Input, InputLabel } from "@mui/material"
+import React from "react";
+import { Container, FormControl, FormHelperText, Input, InputLabel } from "@mui/material";
 
 export default function Page() {
     return (
@@ -7,12 +8,13 @@ export default function Page() {
                 <InputLabel htmlFor="post-title">Title</InputLabel>
                 <Input id="post-title" aria-describedby="title-helper" />
                 <FormHelperText id="title-helper">Enter a title for your post</FormHelperText>
+            </FormControl>
 
+            <FormControl>
                 <InputLabel htmlFor="post-content">Description</InputLabel>
                 <Input id="post-content" aria-describedby="content-helper" />
                 <FormHelperText id="content-helper">Enter a description for your post</FormHelperText>
-                
             </FormControl>
         </Container>
-    )
+    );
 }
