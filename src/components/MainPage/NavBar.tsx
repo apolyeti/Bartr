@@ -68,15 +68,15 @@ export default function NavBar() {
                 <Image
                     src="/bartrlogo.svg"
                     alt="logo"
-                    width={360} 
-                    height={120} 
+                    width={300} 
+                    height={100} 
                 />
                 {/* Login and Sign Up Buttons (Right) */}
                 <Stack spacing={2} direction="row" sx={{ flex:1, justifyContent: "flex-end"}}>
                             <Button variant="contained" style={{backgroundColor: '#FCFCFC', color: '#212121'}}>
                                 LOG IN
                             </Button>
-                            <Button variant="outlined" style={{backgroundColor: '#FCFCFC', color: '#212121'}}>
+                            <Button variant="outlined" style={{backgroundColor: '#212121', color: '#FCFCFC'}}>
                                 SIGN UP
                             </Button>
                 </Stack>
