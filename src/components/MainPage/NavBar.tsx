@@ -93,7 +93,7 @@ export default function NavBar() {
             </Stack>
         
             {/* AppBar with Dark Grey Color (Below the Logo) */}
-            <AppBar position="static" style={{ backgroundColor: '#424242', height: '80px', padding: '5px'}}>
+            <AppBar position="static" style={{ backgroundColor: '#171717', height: '70px'}}>
                 <Stack direction="row" sx={{
                     display: "flex",
                     justifyContent: "center",
@@ -107,7 +107,7 @@ export default function NavBar() {
                                 mx: 'auto',
                                 fontWeight: 'bold',
                                 fontSize: '45px', 
-                                fontFamily: 'Helvetica', 
+                                fontFamily: 'Helvetica Neue', 
                                 color: 'white',
                         }}>popular listings</Box>
                     </div>
