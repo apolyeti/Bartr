@@ -5,7 +5,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export async function POST(request: Request, res: Response) {
 
-    console.log("OGH AIUSHD ASUIODHOAOUISD HAUIODHASIOUD HASUDIH AUSYD GDIS&*FTA&FAAG(&^")
     const body = await request.json();
   
     
