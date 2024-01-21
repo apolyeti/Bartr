@@ -2,6 +2,7 @@
 import prisma from "@/utils/db";
 import ItemPost from "@/components/ItemComponents/ItemPost";
 import { Container, Grid } from "@mui/material";
+import NavBar from "@/components/MainPage/NavBar";
 export default async function Home() {
 
   // const user = await prisma.user.findUnique({
@@ -20,15 +21,18 @@ export default async function Home() {
   
   return (
     // <Typography>{user.name}</Typography>
-    <Container>
+    <>
+      <NavBar />
+      <Container>
       <Grid container spacing={10}>
           {posts.map((post) => (
-          <Grid item xs={3}>
-              <ItemPost item={post} />
-          </Grid>
+            <Grid item xs={3}>
+                <ItemPost item={post} />
+            </Grid>
           ))}
       </Grid>
     </Container>
+    </>
     /*
       <AppBar>
         <Toolbar>

@@ -34,7 +34,7 @@ export default function ItemPost({ item }: ItemPostProps) {
                 image="https://cdn.discordapp.com/attachments/1157200811282157598/1198424995077034054/hat.jpeg?ex=65bedb40&is=65ac6640&hm=004d01afe509f01244eb7c4beabe70ff95580962ee98d8a14e8ceb94d3ac32b3&"
                 component="img"
                 sx={{
-                    width: 300,
+                    width: 275,
                     height: 300,
                 }}
             />
