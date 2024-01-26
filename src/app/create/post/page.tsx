@@ -50,7 +50,7 @@ export default function Page() {
     const handleSubmit = async () =>{
 
         console.log(formData)
-        const response = await fetch('/api/newitem', {
+        const response = await fetch('/api/newItem', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -125,9 +125,7 @@ export default function Page() {
                     onChange={handleChange('location')}
                 />
             </Box>
-            
-
-
+        
             <Button color="primary" component="label" variant="contained" onClick={handleSubmit}>
                 Post listing
             </Button>

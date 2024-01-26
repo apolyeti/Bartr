@@ -1,11 +1,15 @@
 import prisma from "@/utils/db";
+import type { NextApiRequest, NextApiResponse } from 'next'
 
+export async function POST(req: NextApiRequest, res: NextApiResponse) {
 
-export async function POST(req: Request, res: Response) {
+    let { body } = req;
+    let passedValue = await new Response(body).text();
+    body = JSON.parse(passedValue);
 
-    const body = await req.json();
     console.log('this is the body')
     console.log(body)
+
     const email = body.author;
     let userId = -5;
     // find userid by email
