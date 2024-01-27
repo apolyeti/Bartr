@@ -10,7 +10,13 @@ import {useSession} from "next-auth/react";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 
+import {v2 as cloudinary} from 'cloudinary';
 
+// cloudinary.config({ 
+//     cloud_name: process.env.CLOUD_NAME,
+//     api_key: process.env.CLOUD_API_KEY,
+//     api_secret: process.env.CLOUD_SECRET
+// });
 
 const ariaLabel = { 'aria-label': 'description' };
 
@@ -48,7 +54,10 @@ export default function Page() {
     };
     
     const handleSubmit = async () =>{
-
+        cloudinary.uploader.upload("https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
+        { public_id: "olympic_flag" }, 
+        function(error, result) {console.log(result); });
+        
         console.log(formData)
         const response = await fetch('/api/newItem', {
             method: 'POST',
