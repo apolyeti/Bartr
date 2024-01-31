@@ -7,6 +7,8 @@ import { Box, CardMedia, Typography } from "@mui/material";
 import prisma from "@/utils/db";
 import NextLink from 'next/link';
 
+import cld from '@/utils/cloudinary';
+
 
 
 interface ItemPostProps {
@@ -57,7 +59,7 @@ export default async function ItemPost({ showAll, item }: ItemPostProps) {
         console.log(error);
     }
 
-
+    console.log(cld.image(item.image).toURL());
 
     return (
         <NextLink href={`/post/${item.id}`}>
@@ -66,13 +68,13 @@ export default async function ItemPost({ showAll, item }: ItemPostProps) {
                     display: 'flex',
                     flexDirection: 'column',
                     width: 300,
-                    height: 400,
+                    height: 450,
                     margin: 2,
                     boxShadow: 0
                 }}
             >
                 <CardMedia
-                    image={item.image}
+                    src={cld.image(item.image).toURL()}
                     component="img"
                     sx={{
                         width: 275,
