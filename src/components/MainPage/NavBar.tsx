@@ -80,7 +80,7 @@ export default function NavBar() {
     // if found, dont do anything
     useEffect(() => {
         const setRoute = async () => {
-            const res = await fetch('api/userid', {
+            const res = await fetch('../api/userid', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -92,11 +92,11 @@ export default function NavBar() {
             
             const data = await res.json();
             setUserIdRoute(data.userId);
-            console.log(userIdRoute);
+            console.log("id route: ", userIdRoute);
         }
 
         setRoute();
-    })
+    }, [session]);
 
 
     useEffect(() => {

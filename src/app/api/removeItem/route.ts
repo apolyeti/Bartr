@@ -1,6 +1,6 @@
 import prisma from "@/utils/db";
 
-export async function POST(req: Request, res: Response) {
+export async function DELETE(req: Request, res: Response) {
     // body will consist of post id
     const body = await req.json();
     const postId = body.postId;
@@ -9,9 +9,10 @@ export async function POST(req: Request, res: Response) {
     
     const post = await prisma.post.delete({
         where: {
-            id: postId,
-        },
+            id: postId
+        }
     });
+
     console.log('this is post')
     console.log(post);
 

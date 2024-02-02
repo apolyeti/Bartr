@@ -8,13 +8,12 @@ import ItemPost from '@/components/ItemComponents/ItemPost';
 import { notFound } from 'next/navigation';
 import Divider from '@mui/material/Divider';
 
-
 function stringAvatar(name: string) {
   return {
     sx: {
-      bgcolor: "black",
+      bgcolor: "primary.main",
     },
-    children: `${name.split(' ')[0][0]}`,
+    children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
   };
 }
 
@@ -56,7 +55,7 @@ export default async function Page({ params }: { params: { user: string } }) {
         <Stack spacing={2} direction="row" sx={{
           padding: "4rem",
         }}>
-          <Avatar {...stringAvatar(user.name || '')} sx={{
+          <Avatar {...stringAvatar(user.name)} sx={{
             width: 200, height:200, fontSize: 64
           }} />
           <Stack spacing={2} direction="column" sx={{
@@ -78,9 +77,11 @@ export default async function Page({ params }: { params: { user: string } }) {
           <Typography fontSize={25}>Listings</Typography>
             <Stack direction="row">
                 {posts.map((post) => (
+                  <span>
                     <ItemPost item={post} showAll={false} key={post.id}/>
+                  </span>
                 ))}
-            </Stack>          
+            </Stack>
         </Stack>
 
     </Stack>

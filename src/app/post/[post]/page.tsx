@@ -3,7 +3,9 @@ import Stack from '@mui/material/Stack';
 import prisma from "@/utils/db";
 import { notFound } from 'next/navigation';
 import ItemPost from '@/components/ItemComponents/ItemPost';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
+
+import ItemRemoveButton from '@/components/ItemComponents/ItemRemoveButton';
 
 export default async function Page({ params }: { params: { post: string } }) {
     
@@ -32,7 +34,10 @@ export default async function Page({ params }: { params: { post: string } }) {
     return (
         <Container>
             <Stack direction="row" >
-                <ItemPost item={post} showAll={true}/>
+                <Stack direction={"column"} spacing={2}>
+                    <ItemPost item={post} showAll={true}/>
+                    <ItemRemoveButton itemId={post.id}/>
+                </Stack>
                 <Box>
                     <Typography fontWeight="thin" variant="h5">{user.name}</Typography>
                     <Typography fontStyle="italic" fontWeight="thin" fontFamily="monospace" variant="h6">{post.content}</Typography>

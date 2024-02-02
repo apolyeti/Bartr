@@ -10,7 +10,6 @@ import NextLink from 'next/link';
 import cld from '@/utils/cloudinary';
 
 
-
 interface ItemPostProps {
     item: {
         id: number;
@@ -20,11 +19,6 @@ interface ItemPostProps {
     },
     showAll?: boolean;
 }
-
-
-
-
-
 
 export default async function ItemPost({ showAll, item }: ItemPostProps) {
     // find the actual item in database using the id,
